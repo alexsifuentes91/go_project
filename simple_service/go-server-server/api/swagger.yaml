@@ -1,0 +1,126 @@
+---
+swagger: "2.0"
+info:
+  description: "Simple messaging service used for testing"
+  version: "1.0.0"
+  title: "Simple Messaging Test Service"
+host: "simple_messaging.swagger.io"
+basePath: "/v2"
+schemes:
+- "https"
+- "http"
+paths:
+  /:
+    get:
+      tags:
+      - "Simple Messaging API"
+      summary: "Get all the messages"
+      description: "Returns all messages"
+      operationId: "getMessage"
+      produces:
+      - "application/json"
+      - "application/xml"
+      parameters: []
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            type: "array"
+            items:
+              $ref: "#/definitions/Message"
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Message not found"
+    post:
+      tags:
+      - "Simple Messaging API"
+      summary: "Create a new message"
+      description: ""
+      operationId: "addMessage"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/json"
+      - "application/xml"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Message object needing to be recorded"
+        required: true
+        schema:
+          $ref: "#/definitions/Message"
+        x-exportParamName: "Body"
+      responses:
+        "405":
+          description: "Invalid input"
+    put:
+      tags:
+      - "Simple Messaging API"
+      summary: "Update an existing message"
+      description: ""
+      operationId: "updateMessage"
+      consumes:
+      - "application/json"
+      - "application/xml"
+      produces:
+      - "application/json"
+      - "application/xml"
+      parameters:
+      - in: "body"
+        name: "body"
+        description: "Message that needs to be updated"
+        required: true
+        schema:
+          $ref: "#/definitions/Message"
+        x-exportParamName: "Body"
+      responses:
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Message not found"
+        "405":
+          description: "Validation exception"
+  /{index}:
+    get:
+      tags:
+      - "Simple Messaging API"
+      summary: "Find message by message number"
+      description: "Returns a single message"
+      operationId: "getMessageByNumber"
+      produces:
+      - "application/json"
+      - "application/xml"
+      parameters:
+      - name: "index"
+        in: "path"
+        description: "ID of message"
+        required: true
+        type: "integer"
+        format: "int64"
+        x-exportParamName: "Index"
+      responses:
+        "200":
+          description: "successful operation"
+          schema:
+            $ref: "#/definitions/Message"
+        "400":
+          description: "Invalid ID supplied"
+        "404":
+          description: "Message not found"
+definitions:
+  Message:
+    type: "object"
+    properties:
+      index:
+        type: "integer"
+        format: "int64"
+      message:
+        type: "string"
+      source:
+        type: "string"
+    example:
+      index: 0
+      source: "source"
+      message: "message"

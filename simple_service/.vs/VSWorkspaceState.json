@@ -1,0 +1,10 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\go-client",
+    "\\go-server-server",
+    "\\go-server-server\\go"
+  ],
+  "SelectedNode": "\\go-server-server\\go\\model_message.go",
+  "PreviewInSolutionExplorer": false
+}
