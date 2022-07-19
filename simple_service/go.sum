@@ -1,2 +1,4 @@
 github.com/alexsifuentes91/go_project v0.0.0-20220719211145-85580e679ffb h1:47DEQpj8HBSa+/TImW+5JCeuQeRkm5NMpJWZG3hSuFU=
 github.com/alexsifuentes91/go_project v0.0.0-20220719211145-85580e679ffb/go.mod h1:OWpSBpQRCFoGAMDpG9b5aKpTy90XInqbVqww0lvFopM=
+github.com/gorilla/mux v1.8.0 h1:i40aqfkR1h2SlN9hojwV5ZA91wcXFOvkdNIeFDP5koI=
+github.com/gorilla/mux v1.8.0/go.mod h1:DVbg23sWSpFRCP0SfiEN6jmj59UnW/n46BH5rLB71So=

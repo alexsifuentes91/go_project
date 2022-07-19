@@ -20,7 +20,7 @@ import (
 	//
 	//    sw "github.com/myname/myrepo/go"
 	//
-	sw "github.com/alexsifuentes91/go_project"
+	sw "simple_service/swagger"
 )
 
 func main() {
